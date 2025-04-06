@@ -55,7 +55,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Maven Shade Plugin (Jar yaratish uchun) -->
+            <!-- Maven Shade Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -68,6 +68,16 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <!-- Maven Exec Plugin -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <mainClass>org.example.BotInitializer</mainClass> <!-- o‘zgartiring agar kerak bo‘lsa -->
+                </configuration>
             </plugin>
         </plugins>
     </build>
