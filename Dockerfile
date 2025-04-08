@@ -1,11 +1,12 @@
-# 1. Maven orqali build qilamiz
-FROM maven:3.8.6-openjdk-17 AS build
+# Maven + JDK 17 mavjud bo‘lgan rasm
+FROM maven:3.8.6-eclipse-temurin-17 AS build
+
 WORKDIR /app
 COPY . .
 RUN mvn clean package
 
-# 2. Endi faqat .jar faylni ishga tushiramiz
-FROM openjdk:17-jdk-slim
+# Faqat runtime uchun
+FROM eclipse-temurin:17-jdk
 WORKDIR /app
 COPY --from=build /app/target/telegram-bot-1.0-SNAPSHOT.jar bot.jar
 CMD ["java", "-jar", "bot.jar"]
