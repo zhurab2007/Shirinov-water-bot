@@ -55,7 +55,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Maven Shade Plugin -->
+            <!-- Maven Shade Plugin for creating fat JAR -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -66,17 +66,24 @@
                         <goals>
                             <goal>shade</goal>
                         </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>org.example.BotInitializer</mainClass> <!-- Main class name -->
+                                </transformer>
+                            </transformers>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
 
-            <!-- Maven Exec Plugin -->
+            <!-- Maven Exec Plugin (optional, for running from IDE or command line) -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
                 <configuration>
-                    <mainClass>org.example.BotInitializer</mainClass> <!-- o‘zgartiring agar kerak bo‘lsa -->
+                    <mainClass>org.example.BotInitializer</mainClass>
                 </configuration>
             </plugin>
         </plugins>
