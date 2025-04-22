@@ -9,7 +9,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKe
 import java.io.File;
 import java.util.*;
 
-public class CatalogHandler {
+public class Catalog {
     private static final String IMAGE_PATH = "/Users/kuaijike/Desktop/A/001_compressed.jpg";
 
     private static final Map<String, Integer> PRODUCTS = new LinkedHashMap<>();

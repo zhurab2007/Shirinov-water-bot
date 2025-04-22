@@ -40,7 +40,7 @@ public class BotMain extends TelegramLongPollingBot {
                         sendMessage(chatId, "📱 Iltimos, telefon raqamingizni yuborish uchun botga shaxsiy chatda yozing: @Shirinov_waters_bot");
                     }
                 }
-                case "📁 Katalog" -> CatalogHandler.sendCatalog(chatId, this);
+                case "📁 Katalog" -> Catalog.sendCatalog(chatId, this);
                 case "🛒 Savatcha" -> sendCart(chatId);
                 case "📦 Buyurtmalar" -> sendMessage(chatId, "📝 Buyurtmalaringiz ro‘yxati bo‘sh.");
                 case "❓ Yordam" -> sendMessage(chatId, "☎️ Aloqa: +998 94 128 10 14 yoki @Shirinov_M");
@@ -133,7 +133,7 @@ public class BotMain extends TelegramLongPollingBot {
         int total = 0;
 
         for (var entry : userCart.entrySet()) {
-            int price = CatalogHandler.getPrice(entry.getKey());
+            int price = Catalog.getPrice(entry.getKey());
             int qty = entry.getValue();
             total += price * qty;
             text.append("🔹 ").append(entry.getKey()).append(" - ")
@@ -200,7 +200,7 @@ public class BotMain extends TelegramLongPollingBot {
         text.append("\n📦 Buyurtma:\n");
         int total = 0;
         for (Map.Entry<String, Integer> entry : userCart.entrySet()) {
-            int price = CatalogHandler.getPrice(entry.getKey());
+            int price = Catalog.getPrice(entry.getKey());
             int qty = entry.getValue();
             total += price * qty;
             text.append("• ").append(entry.getKey())
