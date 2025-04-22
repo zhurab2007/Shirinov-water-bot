@@ -215,7 +215,7 @@ public class BotMain extends TelegramLongPollingBot {
 
     private User getUser(long chatId) {
         // TODO: Optionally cache User info if available from Update
-        return null; // You may extend logic to keep user info from Message.getFrom()
+        return null;
     }
 
     private void sendMessage(long chatId, String text) {
@@ -238,6 +238,6 @@ public class BotMain extends TelegramLongPollingBot {
 
     @Override
     public String getBotToken() {
-        return "7889953547:AAE7XvHPAy03f-wL9YItZFlSDZuUM3tsy-s"; // 🛡 Tokenni real kodda yashiring
+        return "7889953547:AAE7XvHPAy03f-wL9YItZFlSDZuUM3tsy-s";
     }
 }
